@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.UserDao">
+    <select id="selectUserPageByUsernameAndRole" resultType="com.xyxy.kst.cax.entity.User">
+        select *
+        from xzs.t_user
+        <where>
+            deleted=0
+            <if test="role != null">
+                and role = #{role}
+            </if>
+            <if test="username != ''">
+                and user_name like concat('%',#{username},'%')
+            </if>
+        </where>
+    </select>
+
+    <update id="updateUser">
+        update xzs.t_user
+        set class_id = 0
+        where id = #{user.id}
+    </update>
+
+    <select id="selectUserPageByUsernameAndRoleAndClass" resultType="com.xyxy.kst.cax.entity.User">
+        select *
+        from xzs.t_user
+        <where>
+            deleted=0
+            <if test="role != null">
+                and role = #{role}
+            </if>
+            <if test="userName != ''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+            <if test="classIdList != null and classIdList.size() > 0">
+                and class_id in
+                <foreach collection="classIdList" item="class_id" index="index" open="(" close=")" separator=",">
+                     #{class_id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

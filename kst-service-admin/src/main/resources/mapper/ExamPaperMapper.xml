@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.ExamPaperDao">
+    <select id="getExamPaperPage" resultType="com.xyxy.kst.cax.entity.ExamPaper">
+        select *
+        from xzs.t_exam_paper
+        <where>
+            deleted = 0
+            <if test="examVM.id != null">
+                and id = #{examVM.id}
+            </if>
+            <if test="examVM.level != null">
+                and grade_level = #{examVM.level}
+            </if>
+            <if test="examVM.subjectId != null">
+                and subject_id = #{examVM.subjectId}
+            </if>
+        </where>
+    </select>
+
+    <select id="taskExamPage" resultType="com.xyxy.kst.cax.entity.ExamPaper">
+        select * from xzs.t_exam_paper
+        <where>
+            deleted = 0
+            and paper_type = #{examVM.paperType}
+            and task_exam_id is null
+            <if test="examVM.level != null">
+                and grade_level = #{examVM.level}
+            </if>
+            <if test="examVM.subjectId != null">
+                and subject_id = #{examVM.subjectId}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kst-auth/kst-auth.iml" filepath="$PROJECT_DIR$/kst-auth/kst-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kst-common/kst-common.iml" filepath="$PROJECT_DIR$/kst-common/kst-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kst-gatway/kst-gatway.iml" filepath="$PROJECT_DIR$/kst-gatway/kst-gatway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kst-openFeign/kst-openFeign.iml" filepath="$PROJECT_DIR$/kst-openFeign/kst-openFeign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kst-service-admin/kst-service-admin.iml" filepath="$PROJECT_DIR$/kst-service-admin/kst-service-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kst-student/kst-student.iml" filepath="$PROJECT_DIR$/kst-student/kst-student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xzs-cloud.iml" filepath="$PROJECT_DIR$/xzs-cloud.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.ClassDao">
+    <select id="classPageList" resultType="com.xyxy.kst.cax.entity.Class">
+        select *
+        from xzs.t_class
+        <where>
+            deleted = 0
+            <if test='classVM.className != ""'>
+                and class_name like concat('%',#{classVM.className},'%')
+            </if>
+            <if test='classVM.level != null'>
+                and level = #{classVM.level}
+            </if>
+        </where>
+    </select>
+</mapper>

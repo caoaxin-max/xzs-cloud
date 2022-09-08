@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kst-student" />
+        <module name="kst-gatway" />
+        <module name="kst-service-admin" />
+        <module name="kst-openFeign" />
+        <module name="kst-common" />
+        <module name="kst-auth" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kst-auth" target="1.8" />
+      <module name="kst-common" target="1.8" />
+      <module name="kst-gatway" target="1.8" />
+      <module name="kst-log" target="1.8" />
+      <module name="kst-log-service" target="1.8" />
+      <module name="kst-openFeign" target="1.8" />
+      <module name="kst-security" target="1.8" />
+      <module name="kst-service-admin" target="1.8" />
+      <module name="kst-service-security" target="1.8" />
+      <module name="kst-student" target="1.8" />
+      <module name="xzs-cloud" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="kst-common" options="" />
+      <module name="kst-gatway" options="" />
+      <module name="kst-openFeign" options="" />
+      <module name="kst-security" options="" />
+      <module name="kst-service-admin" options="" />
+      <module name="xzs-cloud" options="-parameters" />
+    </option>
+  </component>
+</project>

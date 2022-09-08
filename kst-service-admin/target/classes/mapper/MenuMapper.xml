@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.MenuDao">
+    <resultMap id="BaseMap" type="com.xyxy.kst.cax.entity.Menu">
+        <id column="m1m" property="menuId"/>
+        <result column="m1mn" property="menuName"/>
+        <result column="m1c" property="component"/>
+        <result column="m1u" property="url"/>
+        <result column="m1n" property="name"/>
+        <result column="m1h" property="hidden"/>
+        <result column="m1i" property="icon"/>
+        <result column="m1nc" property="noCache"/>
+        <collection property="menus" ofType="com.xyxy.kst.cax.entity.Menu">
+            <id column="m2m" property="menuId"/>
+            <result column="m2.parent_id" property="parentId"/>
+            <result column="m2mn" property="menuName"/>
+            <result column="m2c" property="component"/>
+            <result column="m2u" property="url"/>
+            <result column="m2n" property="name"/>
+            <result column="m2h" property="hidden"/>
+            <result column="m2nc" property="noCache"/>
+            <result column="m2am" property="activeMenu"/>
+        </collection>
+    </resultMap>
+    <select id="getAdminMenu" resultMap="BaseMap">
+        SELECT m1.menu_id     m1m,
+               m1.menu_name   m1mn,
+               m1.component   m1c,
+               m1.url         m1u,
+               m1.name        m1n,
+               m1.hidden      m1h,
+               m1.icon        m1i,
+               m1.no_cache    m1nc,
+               m2.menu_id     m2m,
+               m2.parent_id   m2p,
+               m2.menu_name   m2mn,
+               m2.component   m2c,
+               m2.url         m2u,
+               m2.name        m2n,
+               m2.hidden      m2h,
+               m2.no_cache    m2nc,
+               m2.active_menu m2am
+        FROM xzs.t_menu as m1
+                     join xzs.t_menu as m2 on m1.menu_id = m2.parent_id;
+    </select>
+
+
+    <resultMap id="BaseTeacherMap" type="com.xyxy.kst.cax.entity.Menu">
+        <id column="m2m" property="menuId"/>
+        <result column="m2p" property="parentId"/>
+        <result column="m2mn" property="menuName"/>
+        <result column="m2c" property="component"/>
+        <result column="m2u" property="url"/>
+        <result column="m2n" property="name"/>
+        <result column="m2h" property="hidden"/>
+        <result column="m2i" property="icon"/>
+        <result column="m2nc" property="noCache"/>
+        <result column="m2am" property="activeMenu"/>
+        <collection property="menus" ofType="com.xyxy.kst.cax.entity.Menu">
+            <id column="m1m" property="menuId"/>
+            <result column="m1p" property="parentId"/>
+            <result column="m1mn" property="menuName"/>
+            <result column="m1c" property="component"/>
+            <result column="m1u" property="url"/>
+            <result column="m1n" property="name"/>
+            <result column="m1h" property="hidden"/>
+            <result column="m1i" property="icon"/>
+            <result column="m1nc" property="noCache"/>
+            <result column="m1am" property="activeMenu"/>
+        </collection>
+    </resultMap>
+
+    <select id="getTeacherMenu" resultMap="BaseTeacherMap">
+        SELECT m1.menu_id     m1m,
+               m1.parent_id   m1p,
+               m1.menu_name   m1mn,
+               m1.component   m1c,
+               m1.url         m1u,
+               m1.name        m1n,
+               m1.hidden      m1h,
+               m1.icon        m1i,
+               m1.no_cache    m1nc,
+               m1.active_menu m1am,
+               m2.menu_id     m2m,
+               m2.parent_id   m2p,
+               m2.menu_name   m2mn,
+               m2.component   m2c,
+               m2.url         m2u,
+               m2.name        m2n,
+               m2.hidden      m2h,
+               m2.icon        m2i,
+               m2.no_cache    m2nc,
+               m2.active_menu m2am
+        FROM xzs.t_menu m1
+                     JOIN xzs.t_role_menu rm ON m1.menu_id = rm.menu_id
+                     JOIN xzs.t_menu m2 ON m2.menu_id = m1.parent_id
+        WHERE rm.role = #{role};
+    </select>
+</mapper>

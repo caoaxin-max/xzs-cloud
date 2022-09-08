@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.UserEventLogDao">
+    <select id="oneMonthUserActive" resultType="com.xyxy.kst.cax.entity.other.KeyValue">
+        SELECT create_time as name, COUNT(create_time) as value
+        from (
+                     SELECT DATE_FORMAT(create_time, '%Y-%m-%d') as create_time
+                     from xzs.t_user_event_log
+                     WHERE create_time between #{startTime} and #{endTime}
+                     ) a
+        GROUP BY create_time
+    </select>
+
+    <select id="getUserEventPageList" resultType="com.xyxy.kst.cax.entity.UserEventLog">
+        select *
+        from xzs.t_user_event_log
+        <where>
+            <if test="userId != null">
+                user_id = #{userId}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+        </where>
+    </select>
+</mapper>

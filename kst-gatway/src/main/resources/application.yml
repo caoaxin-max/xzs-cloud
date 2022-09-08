@@ -1,0 +1,41 @@
+# 服务端口
+server:
+  port: 81
+
+# 服务名
+spring:
+  application:
+    name: kst-gateway
+
+  # nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    #使用服务发现路由
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: kst-service-admin
+          uri: lb://kst-service-admin
+          predicates:
+            - Path=/*/admin/**
+        - id: kst-student
+          uri: lb://kst-student
+          predicates:
+            - Path=/*/student/**,/updateImages/**
+        - id: kst-auth
+          uri: lb://kst-auth
+          predicates:
+            - Path=/*/auth/**
+security:
+  ignore:
+    whites:
+      - /api/auth/login
+      - /api/auth/register
+      - /api/auth/logout
+      - /updateImages/**
+      - /api/admin/getMenu/**

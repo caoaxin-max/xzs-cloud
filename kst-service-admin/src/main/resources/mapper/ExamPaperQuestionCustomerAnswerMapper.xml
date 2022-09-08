@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.ExamPaperQuestionCustomerAnswerDao">
+    <select id="selectCountByDate" resultType="com.xyxy.kst.cax.entity.other.KeyValue">
+        SELECT create_time as name,COUNT(create_time) as value from
+                (
+                        SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper_question_customer_answer
+                        WHERE  create_time  between  #{startTime}  and  #{endTime}
+                        ) a
+        GROUP BY create_time
+    </select>
+</mapper>

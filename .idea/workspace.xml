@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="86b5985e-999e-4eb7-a70a-b0c10dbd5757" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PATH_TO_GIT" value="E:\Git\bin\git.exe" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../github/xzs-cloud" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Maven\repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Maven/apache-maven-3.6.1-bin/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="E:\Maven\apache-maven-3.6.1-bin\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="29bWLlzxFzzImP1Zkz6prGpOg89" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github/xzs-cloud" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.125" />
+    <property name="project.structure.side.proportion" value="0.23791349" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\毕业设计\xzs-cloud\kst-common\src\main\java\com\xyxy\kst\cax" />
+      <recent name="E:\毕业设计\xzs-cloud\kst-common\src\main\java\com\xyxy\kst\cax\utils" />
+      <recent name="E:\毕业设计\xzs-cloud\kst-common\src\main\java\com\xyxy\kst\cax\exception" />
+      <recent name="E:\毕业设计\xzs-cloud\kst-common\src\main\java\com\xyxy\kst\cax\entity" />
+      <recent name="E:\毕业设计\xzs-cloud\kst-common\src\main\java\com\xyxy\kst\cax\domain" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.xyxy.kst.cax" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xyxy.kst.cax.viewmodel.admin.menumodel" />
+      <recent name="com.xyxy.kst.cax.config" />
+      <recent name="com.xyxy.kst.cax.handler" />
+      <recent name="com.xyxy.cax.auth.controller" />
+      <recent name="com.xyxy.kst.cax.filter" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.MenuServiceTest.test">
+    <configuration name="MenuServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax.service" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.service.MenuServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax.service" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.service.MenuServiceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuServiceTest.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax.service" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.service.MenuServiceTest" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceAdmin8001Test.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.ServiceAdmin8001Test" />
+      <option name="METHOD_NAME" value="test01(com.xyxy.kst.cax.security.LoginUser)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceAdmin8001Test.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.ServiceAdmin8001Test" />
+      <option name="METHOD_NAME" value="test01(com.xyxy.kst.cax.security.LoginUser)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceAdmin8001Test.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xyxy.kst.cax" />
+      <option name="MAIN_CLASS_NAME" value="com.xyxy.kst.cax.ServiceAdmin8001Test" />
+      <option name="METHOD_NAME" value="test01(javax.servlet.http.HttpServletRequest)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthApplication8500" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kst-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.cax.auth.AuthApplication8500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication82" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kst-gatway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.kst.cax.GatewayApplication82" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication8004" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="kst-service-security" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.kst.cax.SecurityApplication8004" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication9002" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kst-service-security" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.kst.cax.SecurityApplication9002" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceAdmin8001" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kst-service-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.kst.cax.ServiceAdmin9001" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentApplication9003" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="kst-student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xyxy.kst.cax.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyxy.kst.cax.student.StudentApplication9003" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ServiceAdmin8001Test.test01" />
+      <item itemvalue="JUnit.MenuServiceTest.test" />
+      <item itemvalue="JUnit.MenuServiceTest" />
+      <item itemvalue="JUnit.MenuServiceTest.test01" />
+      <item itemvalue="Spring Boot.AuthApplication8500" />
+      <item itemvalue="Spring Boot.ServiceAdmin8001" />
+      <item itemvalue="Spring Boot.GatewayApplication82" />
+      <item itemvalue="Spring Boot.SecurityApplication9002" />
+      <item itemvalue="Spring Boot.StudentApplication9003" />
+      <item itemvalue="Spring Boot.SecurityApplication8004" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StudentApplication9003" />
+        <item itemvalue="JUnit.MenuServiceTest.test" />
+        <item itemvalue="JUnit.MenuServiceTest.test01" />
+        <item itemvalue="JUnit.MenuServiceTest" />
+        <item itemvalue="Spring Boot.SecurityApplication8004" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86b5985e-999e-4eb7-a70a-b0c10dbd5757" name="Changes" comment="" />
+      <created>1653382214981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653382214981</updated>
+      <workItem from="1653382216016" duration="4198000" />
+      <workItem from="1653386562301" duration="9497000" />
+      <workItem from="1653437890195" duration="16976000" />
+      <workItem from="1653527807231" duration="23865000" />
+      <workItem from="1653571688975" duration="4012000" />
+      <workItem from="1653577198054" duration="92000" />
+      <workItem from="1653892719461" duration="6462000" />
+      <workItem from="1654049853986" duration="1907000" />
+      <workItem from="1654052367401" duration="16493000" />
+      <workItem from="1654496441410" duration="63000" />
+      <workItem from="1654855319868" duration="7730000" />
+      <workItem from="1655079184748" duration="15000" />
+      <workItem from="1655082904561" duration="7058000" />
+      <workItem from="1655090061983" duration="479000" />
+      <workItem from="1655090569330" duration="12700000" />
+      <workItem from="1655103395220" duration="14925000" />
+      <workItem from="1655171746153" duration="8959000" />
+      <workItem from="1655447970578" duration="14558000" />
+      <workItem from="1655774009095" duration="32028000" />
+      <workItem from="1655888050662" duration="6505000" />
+      <workItem from="1655964863792" duration="18430000" />
+      <workItem from="1656635609816" duration="5440000" />
+      <workItem from="1656832790123" duration="851000" />
+      <workItem from="1657066790394" duration="25688000" />
+      <workItem from="1657103647934" duration="7531000" />
+      <workItem from="1657152869533" duration="11554000" />
+      <workItem from="1657181011270" duration="6147000" />
+      <workItem from="1657187277421" duration="700000" />
+      <workItem from="1657188027001" duration="9461000" />
+      <workItem from="1657239708887" duration="32281000" />
+      <workItem from="1657593134139" duration="16119000" />
+      <workItem from="1657674166223" duration="21199000" />
+      <workItem from="1657778455753" duration="17552000" />
+      <workItem from="1658278403752" duration="18197000" />
+      <workItem from="1658386451642" duration="9610000" />
+      <workItem from="1658881485718" duration="114000" />
+      <workItem from="1660359609175" duration="1059000" />
+      <workItem from="1660530651366" duration="54000" />
+      <workItem from="1660530767177" duration="1655000" />
+      <workItem from="1660544860852" duration="600000" />
+      <workItem from="1660563881229" duration="1499000" />
+      <workItem from="1660638371704" duration="4892000" />
+      <workItem from="1660647997978" duration="6034000" />
+      <workItem from="1660696705975" duration="9776000" />
+      <workItem from="1660719254544" duration="5000" />
+      <workItem from="1660721018494" duration="4486000" />
+      <workItem from="1660783034065" duration="18262000" />
+      <workItem from="1660827833571" duration="2250000" />
+      <workItem from="1660872633040" duration="7778000" />
+      <workItem from="1660960420213" duration="12718000" />
+      <workItem from="1661151718846" duration="9950000" />
+      <workItem from="1661237406729" duration="2505000" />
+      <workItem from="1661300928298" duration="4172000" />
+      <workItem from="1661334667097" duration="2486000" />
+      <workItem from="1661393028013" duration="498000" />
+      <workItem from="1661396883879" duration="1082000" />
+      <workItem from="1661413483028" duration="10676000" />
+      <workItem from="1661432104302" duration="557000" />
+      <workItem from="1661474398151" duration="7686000" />
+      <workItem from="1661496726983" duration="1249000" />
+      <workItem from="1661570411898" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.xyxy.kst.cax.viewmodel.student.examPaperAnswer.ExamPaperAnswerVM" memberName="answerItems" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

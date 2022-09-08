@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.QuestionDao">
+    <select id="getQuestionPage" resultType="com.xyxy.kst.cax.entity.Question">
+        select * from xzs.t_question
+        <where>
+            deleted = 0
+            <if test="pageAndSearch.subjectId != null">
+                and subject_id = #{pageAndSearch.subjectId}
+            </if>
+            <if test="pageAndSearch.id != null">
+                and id = #{pageAndSearch.id}
+            </if>
+            <if test="pageAndSearch.level != null">
+                and grade_level = #{pageAndSearch.level}
+            </if>
+            <if test='pageAndSearch.questionType != null '>
+                and question_type = #{pageAndSearch.questionType}
+            </if>
+        </where>
+    </select>
+</mapper>

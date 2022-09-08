@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.SubjectDao">
+    <select id="getSubjectPageList" resultType="com.xyxy.kst.cax.entity.Subject">
+        select *
+        from xzs.t_subject
+        <where>
+            deleted = 0
+            <if test="level != null">
+                and level = #{level}
+            </if>
+        </where>
+    </select>
+</mapper>

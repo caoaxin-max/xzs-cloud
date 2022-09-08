@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyxy.kst.cax.dao.ExamPaperAnswerDao">
+
+    <select id="examPaperAnswerPage" resultType="com.xyxy.kst.cax.entity.ExamPaperAnswer">
+        select * from xzs.t_exam_paper_answer
+        <where>
+            status = #{examPaperAnswerAdminVM.status}
+            <if test="examPaperAnswerAdminVM.level != null">
+                and grade_level = #{examPaperAnswerAdminVM.level}
+            </if>
+            <if test="examPaperAnswerAdminVM.subjectId != null">
+                and subject_id = #{examPaperAnswerAdminVM.subjectId}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="examPaperAnswerByStudentPage" resultType="com.xyxy.kst.cax.entity.ExamPaperAnswer">
+        select * from xzs.t_exam_paper_answer
+        <where>
+            status = #{examPaperAnswerAdminVM.status}
+            <if test="examPaperAnswerAdminVM.level != null">
+                and grade_level = #{examPaperAnswerAdminVM.level}
+            </if>
+            <if test="examPaperAnswerAdminVM.subjectId != null">
+                and subject_id = #{examPaperAnswerAdminVM.subjectId}
+            </if>
+            and create_user in
+            <foreach collection="users" item="user" index="index" open="(" close=")" separator=",">
+                #{user.userName}
+            </foreach>
+        </where>
+    </select>
+</mapper>
