@@ -37,6 +37,8 @@
 - nacos 注册中心
 - openFeign 服务调用
 - gatway 网关，拦截器，验证token
+### 2.3前端链接
+https://github.com/caoaxin-max/vue
 
 ## 3.展示图
 ![1](https://user-images.githubusercontent.com/63568153/189095779-7bb3f41c-8c51-4b86-b314-6225118baf88.png)
