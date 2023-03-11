@@ -5,6 +5,8 @@ import com.xyxy.kst.cax.entity.ExamPaper;
 import com.xyxy.kst.cax.result.Result;
 import com.xyxy.kst.cax.viewmodel.admin.exammodel.ExamVM;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public interface ExamPaperService extends IService<ExamPaper> {
@@ -22,4 +24,6 @@ public interface ExamPaperService extends IService<ExamPaper> {
      * @return
      */
     Map<String, Object> selectExamPaperPage(ExamVM examVM);
+
+    Map<String, List<Integer>> getAnalyseData(Date dateMonth);
 }

@@ -27,6 +27,8 @@ public class DateTimeUtil {
      */
     public static final String STANDER_SHORT_FORMAT = "yyyy-MM-dd";
 
+    public static final String STANDER_SUP_SHORT_FORMAT = "yyyy-MM";
+
     /**
      * Add duration date.
      *
@@ -66,6 +68,14 @@ public class DateTimeUtil {
             return "";
         }
         DateFormat dateFormat = new SimpleDateFormat(STANDER_SHORT_FORMAT);
+        return dateFormat.format(date);
+    }
+
+    public static String dateSupShortFormat(Date date) {
+        if (null == date) {
+            return "";
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat(STANDER_SUP_SHORT_FORMAT);
         return dateFormat.format(date);
     }
 

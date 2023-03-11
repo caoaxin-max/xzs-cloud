@@ -4,6 +4,9 @@ server:
 
 #服务名
 spring:
+  # Jackson 框架默认时区是 GMT（相对于中国少了 8 个小时）
+  jackson:
+    time-zone: GMT+8
   application:
     name: kst-student
   # 环境设置：dev、test、prod
@@ -29,7 +32,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: localhost:8858
 
 logging:
   level:

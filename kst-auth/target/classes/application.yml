@@ -1,6 +1,6 @@
 #端口号
 server:
-  port: 8500
+  port: 8501
 
 #服务名
 spring:
@@ -19,7 +19,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: localhost:8858
 
   # redis 配置
   redis:

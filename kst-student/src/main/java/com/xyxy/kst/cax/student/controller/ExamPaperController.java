@@ -10,6 +10,9 @@ import com.xyxy.kst.cax.viewmodel.admin.question.QuestionEditRequestVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -54,6 +57,12 @@ public class ExamPaperController {
     @PostMapping("/exam/paper/pageList")
     public Result selectExamPaperPage(@RequestBody ExamVM examVM){
         Map<String, Object> map = examPaperService.selectExamPaperPage(examVM);
+        return Result.ok(map);
+    }
+
+    @PostMapping("/exam/paper/analyse")
+    public Result getAnalyse(@RequestBody Date dateMonth){
+         Map<String, List<Integer>> map = examPaperService.getAnalyseData(dateMonth);
         return Result.ok(map);
     }
 
