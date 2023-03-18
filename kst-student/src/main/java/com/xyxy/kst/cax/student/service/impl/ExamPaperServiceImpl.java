@@ -19,6 +19,8 @@ import com.xyxy.kst.cax.student.service.ExamPaperService;
 import com.xyxy.kst.cax.student.service.UserService;
 import com.xyxy.kst.cax.utils.DateTimeUtil;
 import com.xyxy.kst.cax.viewmodel.admin.exammodel.ExamVM;
+import com.xyxy.kst.cax.viewmodel.student.AnalyseFrom;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -66,7 +68,7 @@ public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperDao, ExamPaper> i
             List<ClassTeacher> classTeachers = classTeacherService.getClassTeacher(user.getClassId());
             for (ClassTeacher classTeacher : classTeachers) {
                 User teacher = userService.getById(classTeacher.getTeacherId());
-                List<ExamPaper> examPapers = baseMapper.getFixedExamPaper(teacher.getUserName(), user.getUserLevel());
+                List<ExamPaper> examPapers = baseMapper.getFixedExamPaper(teacher.getUserName(), user.getUserLevel(), user.getUserName());
                 fixedExamPaper.addAll(examPapers);
                 // 查询时段试卷
                 List<ExamPaper> examPapers1 = baseMapper.selectTimeLimitPaper(teacher.getUserName(), user.getUserLevel());
@@ -108,14 +110,13 @@ public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperDao, ExamPaper> i
     /**
      * 获取可视化的数据
      *
-     * @param date
-     * @return
+     * @param analyse
+     * @return Map<String, List<Integer>>
      */
     @Override
-    public Map<String, List<Integer>> getAnalyseData(Date dateMonth) {
-        HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes())).getRequest();
-        LoginUser loginUser = tokenService.getLoginUser(request);
-        User user = userService.getUserByUserName(loginUser.getUsername());
+    public Map<String, List<Integer>> getAnalyseData(AnalyseFrom analyse) {
+        Date dateMonth = analyse.getNowMonth();
+        User user = analyse.getCurrentUser();
         // 日期转为字符串
         String dateStr = DateTimeUtil.dateShortFormat(dateMonth);
         String[] split = dateStr.split("-");

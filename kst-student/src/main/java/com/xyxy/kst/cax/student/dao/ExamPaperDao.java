@@ -15,7 +15,7 @@ public interface ExamPaperDao extends BaseMapper<ExamPaper> {
      * @param userName
      * @return
      */
-    List<ExamPaper> getFixedExamPaper(@Param("userName") String userName, @Param("level")Integer level);
+    List<ExamPaper> getFixedExamPaper(@Param("userName") String userName, @Param("level")Integer level, @Param("currentName") String currentName);
 
     /**
      * 获取时段试卷

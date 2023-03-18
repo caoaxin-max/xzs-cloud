@@ -6,7 +6,7 @@
         select *
         from xzs.t_exam_paper
         where (deleted = 0 and paper_type = 1 and grade_level = #{level})
-          and (create_user = 'admin' or create_user = #{userName})
+          and (create_user = 'admin' or create_user = #{userName} or create_user = #{currentName})
     </select>
 
     <select id="selectTimeLimitPaper" resultType="com.xyxy.kst.cax.entity.ExamPaper">

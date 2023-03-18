@@ -2,8 +2,10 @@ package com.xyxy.kst.cax.student.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xyxy.kst.cax.entity.ExamPaper;
+import com.xyxy.kst.cax.entity.User;
 import com.xyxy.kst.cax.result.Result;
 import com.xyxy.kst.cax.viewmodel.admin.exammodel.ExamVM;
+import com.xyxy.kst.cax.viewmodel.student.AnalyseFrom;
 
 import java.util.Date;
 import java.util.List;
@@ -25,5 +27,5 @@ public interface ExamPaperService extends IService<ExamPaper> {
      */
     Map<String, Object> selectExamPaperPage(ExamVM examVM);
 
-    Map<String, List<Integer>> getAnalyseData(Date dateMonth);
+    Map<String, List<Integer>> getAnalyseData(AnalyseFrom analyse);
 }

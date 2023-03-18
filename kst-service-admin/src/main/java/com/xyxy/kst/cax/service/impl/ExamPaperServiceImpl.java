@@ -1,10 +1,12 @@
 package com.xyxy.kst.cax.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xyxy.kst.cax.dao.ExamPaperDao;
+import com.xyxy.kst.cax.dao.QuestionDao;
 import com.xyxy.kst.cax.domain.LoginUser;
 import com.xyxy.kst.cax.entity.*;
 import com.xyxy.kst.cax.service.*;
@@ -47,6 +49,8 @@ public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperDao, ExamPaper> i
     @Autowired
     private TaskExamService taskExamService;
 
+    @Autowired
+    private QuestionDao questionDao;
     /**
      * 获取到试卷卷总数
      */
@@ -243,5 +247,168 @@ public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperDao, ExamPaper> i
         map.put("pageNum", pageNum);
         map.put("total", total);
         return map;
+    }
+
+
+    /**
+     * 遗传算法组卷
+     *
+     * @param difficulty 题目难度，取值为 1-5
+     * @param questionCount 题目数量
+     * @param subjectId 学科ID
+     * @param gradeLevel 年级，取值为 1-12
+     * @return 试卷题目列表
+     */
+    @Override
+    public List<Question> generatePaper(int difficulty, int questionCount, int subjectId, int gradeLevel) {
+        // 调用mybatis-plus的查询构造器，查询符合条件的题目列表
+        List<Question> questionList = questionDao.selectList(new QueryWrapper<Question>()
+                .eq("subject_id", subjectId) // 指定学科ID
+                .eq("grade_level", gradeLevel) // 指定年级
+                .eq("difficult", difficulty) // 指定难度
+                .orderByAsc("score") // 按照分数升序排序
+                .last("limit " + questionCount * 10)); // 指定题目数量，取前 N 个
+
+        // 如果查询到的题目数量不足，则返回空列表
+        if (questionList.size() < questionCount) {
+            return Collections.emptyList();
+        }
+
+        // 初始化种群，即将随机生成的试卷
+        List<List<Integer>> population = new ArrayList<>();
+        for (int i = 0; i < 50; i++) { // 种群数量为 50
+            List<Integer> chromosome = new ArrayList<>();
+            for (int j = 0; j < questionCount; j++) {
+                chromosome.add(j);
+            }
+            Collections.shuffle(chromosome); // 随机打乱顺序
+            population.add(chromosome);
+        }
+
+        // 开始遗传算法迭代
+        for (int i = 0; i < 1000; i++) { // 迭代次数为 1000
+            List<Integer> scores = new ArrayList<>(); // 记录种群中每个个体的适应度分数
+            for (List<Integer> chromosome : population) {
+                int score = calculateScore(questionList, chromosome); // 计算适应度分数
+                scores.add(score);
+            }
+            List<List<Integer>> newPopulation = new ArrayList<>(); // 新的种群，即下一代的个体
+            for (int j = 0; j < 50; j++) { // 下一代的种群数量仍为 50
+                // 选择操作，选出两个适应度分数高的个体
+                int index1 = select(scores);
+                int index2 = select(scores);
+                // 交叉操作，将两个个体的染色体交叉生成新的个体
+                List<Integer> chromosome1 = population.get(index1);
+                List<Integer> chromosome2 = population.get(index2);
+                List<Integer> newChromosome = crossover(chromosome1, chromosome2);
+                // 变异操作，以一定概率对新个体进行变异
+                mutate(newChromosome);
+                newPopulation.add(newChromosome);
+            }
+            population = newPopulation;
+        }
+
+        // 计算最终的适应度分数并返回试卷题目列表
+        int maxScore = Integer.MIN_VALUE;
+        List<Integer> maxChromosome = null;
+        for (List<Integer> chromosome : population) {
+            int score = calculateScore(questionList, chromosome);
+            if (score > maxScore) {
+                maxScore = score;
+                maxChromosome = chromosome;
+            }
+        }
+
+        // 去重并随机选择题目
+        Set<Integer> indexSet = new HashSet<>();
+        while (indexSet.size() < questionCount) {
+            int index = (int) (Math.random() * questionList.size());
+            indexSet.add(index);
+        }
+
+        List<Question> paper = new ArrayList<>();
+        for (int index : indexSet) {
+            paper.add(questionList.get(index));
+        }
+        return paper;
+    }
+
+    /**
+     * 计算个体的适应度分数
+     *
+     * @param questionList 题目列表
+     * @param chromosome 染色体
+     * @return 适应度分数
+     */
+    private int calculateScore(List<Question> questionList, List<Integer> chromosome) {
+        int totalScore = 0;
+        int totalDifficult = 0;
+        for (int index : chromosome) {
+            totalScore += questionList.get(index).getScore();
+            totalDifficult += questionList.get(index).getDifficult();
+        }
+        int averageDifficult = totalDifficult / chromosome.size();
+        return totalScore * (5 - Math.abs(averageDifficult));
+    }
+
+    /**
+     * 选择操作，按照轮盘赌算法选择一个个体
+     *
+     * @param scores 种群中每个个体的适应度分数
+     * @return 选中的个体的索引
+     */
+    private int select(List<Integer> scores) {
+        int sum = 0;
+        for (int score : scores) {
+            sum += score;
+        }
+        int threshold = (int) (Math.random() * sum); // 生成随机阈值
+        int index = 0;
+        int acc = 0;
+        for (int score : scores) {
+            acc += score;
+            if (acc > threshold) {
+                return index;
+            }
+            index++;
+        }
+        return index - 1;
+    }
+
+    /**
+     * 交叉操作，将两个个体的染色体交叉生成新的个体
+     *
+     * @param chromosome1 个体1的染色体
+     * @param chromosome2 个体2的染色体
+     * @return 新的个体的染色体
+     */
+    private List<Integer> crossover(List<Integer> chromosome1, List<Integer> chromosome2) {
+        int length = chromosome1.size();
+        int crossoverPoint = (int) (Math.random() * (length - 1)) + 1; // 生成随机交叉点
+        List<Integer> newChromosome = new ArrayList<>(length);
+        for (int i = 0; i < length; i++) {
+            if (i < crossoverPoint) {
+                newChromosome.add(chromosome1.get(i));
+            } else {
+                newChromosome.add(chromosome2.get(i));
+            }
+        }
+        return newChromosome;
+    }
+
+    /**
+     * 随机选择染色体中的一个基因，并以一定概率将其改变为另一个可能的值。
+     *
+     * @param chromosome 染色体，即试卷题目的顺序
+     */
+    private void mutate(List<Integer> chromosome) {
+        // 随机选择一个基因
+        int index = (int) (Math.random() * chromosome.size());
+        // 以一定概率进行变异
+        if (Math.random() < 0.1) {
+            // 随机选择另一个可能的值，并将其与原来的值交换位置
+            int newIndex = (int) (Math.random() * chromosome.size());
+            Collections.swap(chromosome, index, newIndex);
+        }
     }
 }

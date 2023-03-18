@@ -8,6 +8,8 @@ import com.xyxy.kst.cax.viewmodel.admin.usermodel.PageAndSearch;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface QuestionDao extends BaseMapper<Question> {
 
@@ -17,4 +19,8 @@ public interface QuestionDao extends BaseMapper<Question> {
      * @return
      */
     IPage<Question> getQuestionPage(@Param("page") Page<Question> page, @Param("pageAndSearch") PageAndSearch pageAndSearch);
+
+    List<Question> getQuestionGA(@Param("difficulty") int difficulty,
+                                 @Param("subject") int subject,
+                                 @Param("grade") int grade);
 }

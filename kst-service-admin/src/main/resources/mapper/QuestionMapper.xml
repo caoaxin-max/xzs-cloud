@@ -20,4 +20,13 @@
             </if>
         </where>
     </select>
+
+    <select id="getQuestionGA" resultType="com.xyxy.kst.cax.entity.Question">
+        select *
+        from xzs.t_question
+        where difficult = #{difficulty}
+          and subject_id = #{subject}
+          and grade_level = #{grade}
+          and deleted = 0
+    </select>
 </mapper>

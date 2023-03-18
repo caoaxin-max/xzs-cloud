@@ -7,6 +7,7 @@ import com.xyxy.kst.cax.domain.LoginUser;
 import com.xyxy.kst.cax.entity.Class;
 import com.xyxy.kst.cax.entity.ClassTeacher;
 import com.xyxy.kst.cax.entity.User;
+import com.xyxy.kst.cax.remote.admin.RemoteExamPaperAnalyse;
 import com.xyxy.kst.cax.result.Result;
 import com.xyxy.kst.cax.service.ClassService;
 import com.xyxy.kst.cax.service.ClassTeacherService;
@@ -14,6 +15,7 @@ import com.xyxy.kst.cax.service.TokenService;
 import com.xyxy.kst.cax.service.UserService;
 import com.xyxy.kst.cax.viewmodel.admin.usermodel.PageAndSearch;
 
+import com.xyxy.kst.cax.viewmodel.student.AnalyseFrom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +50,9 @@ public class UserController {
 
     @Autowired
     private ClassService classService;
+
+    @Autowired
+    private RemoteExamPaperAnalyse remoteExamPaperAnalyse;
 
     // 根据用户名称获取用户信息
     @GetMapping("/getUserByUserName/{username}")
@@ -131,5 +137,11 @@ public class UserController {
         LoginUser loginUser = tokenService.getLoginUser(request);
         User user = userService.getUserByUserName(loginUser.getUsername());
         return Result.ok(user);
+    }
+
+    @PostMapping("/exam/paper/analyse")
+    public Result getAnalyseByStudent(@RequestBody AnalyseFrom analyseFrom){
+        Result analyse = remoteExamPaperAnalyse.getAnalyse(analyseFrom);
+        return analyse;
     }
 }

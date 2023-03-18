@@ -86,4 +86,24 @@ public class Question implements Serializable {
 
     @TableField(exist = false)
     private String shortTitle;
+
+
+    public Question() {
+    }
+
+    public Question(Integer id, Integer questionType, Integer subjectId, Integer score, Integer gradeLevel, Integer difficult, String correct, String textContent, String createUser, Integer status, Date createTime, Boolean deleted, String shortTitle) {
+        this.id = id;
+        this.questionType = questionType;
+        this.subjectId = subjectId;
+        this.score = score;
+        this.gradeLevel = gradeLevel;
+        this.difficult = difficult;
+        this.correct = correct;
+        this.textContent = textContent;
+        this.createUser = createUser;
+        this.status = status;
+        this.createTime = createTime;
+        this.deleted = deleted;
+        this.shortTitle = shortTitle;
+    }
 }
