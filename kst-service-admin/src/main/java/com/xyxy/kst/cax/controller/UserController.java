@@ -1,6 +1,7 @@
 package com.xyxy.kst.cax.controller;
 
 import com.alibaba.excel.EasyExcel;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xyxy.kst.cax.domain.LoginUser;
@@ -143,5 +144,21 @@ public class UserController {
     public Result getAnalyseByStudent(@RequestBody AnalyseFrom analyseFrom){
         Result analyse = remoteExamPaperAnalyse.getAnalyse(analyseFrom);
         return analyse;
+    }
+
+    /**
+     * 验证用户名唯一性
+     * @param userName
+     * @return
+     */
+    @PostMapping("/unique/{userName}")
+    public Result checkUnique(@PathVariable("userName") String userName){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        User user = userService.getUserByUserName(userName);
+        if (user == null){
+            return Result.ok();
+        }else {
+            return Result.build(506, "已存在该用户名，请更换");
+        }
     }
 }

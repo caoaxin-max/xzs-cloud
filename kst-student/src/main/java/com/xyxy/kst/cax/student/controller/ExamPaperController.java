@@ -8,6 +8,7 @@ import com.xyxy.kst.cax.remote.RemoteGAExamPaper;
 import com.xyxy.kst.cax.result.Result;
 import com.xyxy.kst.cax.student.service.ExamPaperService;
 import com.xyxy.kst.cax.student.service.QuestionService;
+import com.xyxy.kst.cax.student.service.UserService;
 import com.xyxy.kst.cax.utils.JsonUtil;
 import com.xyxy.kst.cax.viewmodel.admin.exammodel.ExamPaperTitleItemVM;
 import com.xyxy.kst.cax.viewmodel.admin.exammodel.ExamVM;
@@ -38,6 +39,9 @@ public class ExamPaperController {
 
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 查询固定试卷和时段试卷
@@ -79,20 +83,25 @@ public class ExamPaperController {
     }
 
 
-    @PostMapping("/generate/exam/{difficulty}/{subject}/{grade}/{numQuestions}/{username}")
+    @PostMapping("/generate/exam/{difficulty}/{subject}/{numQuestions}/{username}")
     public Result generateExam(@PathVariable("difficulty") int difficult,
                                @PathVariable("subject") int subject,
-                               @PathVariable("grade") int grade,
                                @PathVariable("numQuestions") int numQuestions,
                                @PathVariable("username")String username){
-        Result result = remoteGAExamPaper.gaExamPaper(difficult, subject, grade, numQuestions, username);
+        // 通过用户名获取年级
+        User user = userService.getUserByUserName(username);
+        Integer level = user.getUserLevel();
+        Result result = remoteGAExamPaper.gaExamPaper(difficult, subject, level, numQuestions, username);
         return result;
     }
 
-    @GetMapping("/question/{subjectId}/{difficulty}/{level}/count")
+    @GetMapping("/question/{subjectId}/{difficulty}/{userName}/count")
     public Result getMaxQuestions(@PathVariable("subjectId") int subjectId,
                                   @PathVariable("difficulty") int difficulty,
-                                  @PathVariable("level") int level){
+                                  @PathVariable("userName") String userName){
+        // 通过用户名获取年级
+        User user = userService.getUserByUserName(userName);
+        Integer level = user.getUserLevel();
         QueryWrapper<Question> query = new QueryWrapper<>();
         query.eq("subject_id", subjectId);
         query.eq("difficult", difficulty);

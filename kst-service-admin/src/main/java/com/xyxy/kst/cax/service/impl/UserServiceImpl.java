@@ -1,6 +1,7 @@
 package com.xyxy.kst.cax.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -118,8 +119,26 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
             return "添加用户成功";
         }else {
             user.setModifyTime(new Date());
-            baseMapper.updateById(user);
-            return "更新用户信息成功";
+            boolean matches = bCryptPasswordEncoder.matches(user.getPassword(), user1.getPassword());
+            if (matches){
+                UpdateWrapper<User> userUpdateWrapper = new UpdateWrapper<>();
+                userUpdateWrapper.eq("id", user.getId());
+                userUpdateWrapper.set("user_name", user.getUserName());
+                userUpdateWrapper.set("real_name", user.getRealName());
+                userUpdateWrapper.set("age", user.getAge());
+                userUpdateWrapper.set("sex", user.getSex());
+                userUpdateWrapper.set("birth_day", user.getBirthDay());
+                userUpdateWrapper.set("user_level", user.getUserLevel());
+                userUpdateWrapper.set("phone", user.getPhone());
+                userUpdateWrapper.set("status", user.getStatus());
+                userUpdateWrapper.set("modify_time", user.getModifyTime());
+                return "更新用户信息成功";
+            }else {
+                String encodePassword = bCryptPasswordEncoder.encode(user.getPassword());
+                user.setPassword(encodePassword);
+                baseMapper.updateById(user);
+                return "更新用户信息成功";
+            }
         }
     }
 
