@@ -14,19 +14,18 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
-.idea
 .vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.idea/vcs.xml
+.idea
 .idea/compiler.xml
-.idea/dataSources.local.xml
-.idea/dataSources/a02f6f15-b0cb-4446-ade6-00f0dfc2856b.xml
-.idea/jarRepositories.xml
-.idea/misc.xml
-.idea/runConfigurations.xml
-.idea/vcs.xml
 .idea/workspace.xml
+.idea/vcs.xml
+.idea/runConfigurations.xml
+.idea/misc.xml
+.idea/jarRepositories.xml
+.idea/dataSources/a02f6f15-b0cb-4446-ade6-00f0dfc2856b.xml
+.idea/dataSources.local.xml
