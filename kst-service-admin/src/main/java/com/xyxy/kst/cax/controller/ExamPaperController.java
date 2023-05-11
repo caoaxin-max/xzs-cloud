@@ -213,7 +213,7 @@ public class ExamPaperController {
            String name;
            while (true){
                name = String.format("智能组卷-%d", i);
-               boolean checkUnique = checkUnique(name);
+               boolean checkUnique = checkUnique(name, username);
                if (checkUnique){
                    i++;
                }else {
@@ -226,9 +226,10 @@ public class ExamPaperController {
        }
    }
 
-   private boolean checkUnique(String name){
+   private boolean checkUnique(String name, String username){
        QueryWrapper<ExamPaper> query = new QueryWrapper<>();
        query.eq("name", name);
+       query.eq("create_user", username);
        ExamPaper examPaper = examPaperService.getOne(query);
        if (examPaper==null){
            return false;

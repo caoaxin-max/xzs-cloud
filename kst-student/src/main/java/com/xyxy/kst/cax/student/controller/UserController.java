@@ -116,7 +116,6 @@ public class UserController {
      */
     @PostMapping("/add/class")
     public Result addClass(@RequestBody UserVM userVM){
-        System.out.println(userVM);
         Result result = userService.addClass(userVM);
         return result;
     }

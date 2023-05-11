@@ -14,6 +14,7 @@ import com.xyxy.kst.cax.service.ClassService;
 import com.xyxy.kst.cax.service.ClassTeacherService;
 import com.xyxy.kst.cax.service.TokenService;
 import com.xyxy.kst.cax.service.UserService;
+import com.xyxy.kst.cax.util.annotation.OperLog;
 import com.xyxy.kst.cax.viewmodel.admin.usermodel.PageAndSearch;
 
 import com.xyxy.kst.cax.viewmodel.student.AnalyseFrom;
@@ -112,9 +113,9 @@ public class UserController {
         return Result.build(200,"删除成功！");
     }
 
+    @OperLog(operDesc = "用户禁用/激活")
     @PostMapping("/user/changeStatus/{id}")
     public Result changeStatus(@PathVariable Integer id){
-        System.out.println("============"+id);
         Integer status = userService.changeStatus(id);
         return Result.ok(status);
     }
